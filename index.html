@@ -1,0 +1,246 @@
+<!-- https://script.google.com/macros/s/AKfycbyosyoS9bln6sgaVaxclrFrL6uXHwwHb_VvLgwuV4mQZYEpY_9xxq2_Ynw8FdpMxE71/exec -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+
+        </title>
+    </head>
+    <body>
+
+    <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbw9gzRh4QXvrN2dvKzEqdCwDujDvcL_49pC4_7nGs4DrAsJYVfa6Lguke37tbgTz3SUDA/exec" method="POST">
+        <div class="form">
+            <div class="title-div">
+                <h1>Student Information</h1>
+                <p>This is a google form. 
+                    <!-- This form is created with HTML and CSS. -->
+                </p>
+                <p class="required">*Required</p>
+            </div>
+    <input type="hidden" value="" name="fileContent" id="fileContent">
+        <input type="hidden" value="" name="filename" id="filename">
+            <div class="name-div">
+                <div class="name">Full Name <span class="required">*</span></div>
+                <div class="input-div"><input required type="text" placeholder="Full Name" value="" name="name" id="name"></div>
+            </div>
+    
+            <div class="college-div">
+                <div class="name">Email <span class="required">*</span></div>
+                <div class="input-div"><input required type="text" placeholder="Email" value="" name="email" id="email"></div>
+            </div>
+
+            
+    
+            <div class="gmail-div">
+                <div class="name">Current Year <span class="required">*</span></div>
+                <div class="input-div"><input required type="text" placeholder="Year" value="" name="skillsets" id="skillsets"></div>
+            </div>
+    <!-- <label>Contact:</label><input required type="text" value="" name="contact" id="contact"> -->
+            <div class="mobile-div">
+                <div class="name">Branch <span class="required">*</span></div>
+                <div class="input-div"><input required type="text" placeholder="Branch" value="" name="linkedinUrl" id="linkedinUrl"></div>
+            </div>
+            <div class="mobile-div">
+                <div class="name">Upload Photo <span class="required">*</span><br/>
+                    <small class="line" styles={padding-top: 10px} id = "line">(Please upload image of 640 x 480 size.)</small></div>
+                
+                <div class="input-div"><input required id="attach" placeholder="Upload Photo" name="attach" type="file" onchange="Upload();"/></div>
+            </div>
+    
+            <!-- /*
+            <input type="file" id="fileUpload" />
+    <input type="button" value="Upload" onclick="return Upload()" /> -->
+            
+    
+            <div>
+                <input value="Submit" type="button" onclick="UploadFile();"/>
+                <!-- <input type="submit" value="Register" onclick="AddRow()" -->
+            </div>
+    
+            <div class="last-div">
+                <p class="never">Never submit passwords through Google Forms.</p>
+                <p class="term">This content is neither created nor endorsed by Google, Report Abuse - Term of Service -
+                    Private Policy</p>
+                <h2>Google Forms</h2>
+            </div>
+    
+    
+    
+    
+    
+        </div>
+       
+        <!-- <input type="hidden" value="" name="fileContent" id="fileContent">
+        <input type="hidden" value="" name="filename" id="filename">
+        <label>Name:</label><input required type="text" value="" name="name" id="name">
+        <label>Email:</label><input required type="text" value="" name="email" id="email">
+        <label>Contact:</label><input required type="text" value="" name="contact" id="contact">
+        <label>SkillSets:</label><input required type="text" value="" name="skillsets" id="skillsets">
+        <label>LinkedIn Account:</label><input required type="text" value="" name="linkedinUrl" id="linkedinUrl"> -->
+    </form>
+
+    <!-- <input required id="attach" name="attach" type="file"/>
+    <input value="Submit" type="button" onclick="UploadFile();"/> -->
+
+    
+<style type="text/css">
+    body{
+	background-color: #ede7f6;
+	font-family: Roboto,Sans-serif;
+}
+.form{
+	height: 1100px;
+	width: 600px;
+	margin: auto;
+}
+.required{
+font-size: 13px;
+color: red;
+}
+.title-div{
+	height: 150px;
+	width: 600px;
+	background-color: #FDFEFE;
+	margin: 15px;
+	border-radius: 8px;
+	border-top: 8px solid #6703c4;
+	padding: 25px;
+}
+.name-div, .college-div, .gmail-div, .mobile-div{
+	height: 150px;
+	width: 650px;
+	background-color: #FDFEFE;
+	margin: 15px;
+	border-radius: 8px;
+}
+.name{
+	padding-top: 20px;
+	padding-left: 25px;
+	padding-bottom: 25px;
+	font-size: 15px;
+}
+.input-div{
+	padding-top: 20px;
+	padding-left: 25px;
+}
+.input-div input{
+	width: 300px;
+	border: 0;
+	outline: 0;
+	border-bottom: 1.5px solid #DCD7D7;
+	font-size: 15px;
+}
+.btn{
+	height: 36px;
+	width: 100px;
+	background-color: #6703c4;
+	border-radius: 5px;
+	font-size: 14px;
+	letter-spacing: .5px;
+	font-weight: 540;
+	border: none;
+	padding: 10px;
+	position: absolute;
+	margin: 15px;
+	color: white;
+}
+.last-div h2{
+	text-align: center;
+	padding-top: 50px;
+	color: #a2a4a6;
+	font-weight: 200;
+}
+.term{
+	font-size: 12px;
+	padding-left: 65px;
+	padding-top: 5px;
+	position: absolute;
+}
+.never{
+	padding-left: 15px;
+	font-size: 12px;
+	padding-top: 70px;
+	font-weight: 400;
+
+}
+
+.line{
+    font-size:80% ;
+     font-weight : bold;
+}
+
+</style>
+    <script>
+
+         function Upload() {
+            //Get reference of FileUpload.
+            var fileUpload = document.getElementById("attach");
+
+            //Check whether the file is valid Image.
+            var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
+            if (regex.test(fileUpload.value.toLowerCase())) {
+
+                //Check whether HTML5 is supported.
+                if (typeof (fileUpload.files) != "undefined") {
+                    //Initiate the FileReader object.
+                    var reader = new FileReader();
+                    //Read the contents of Image File.
+                    reader.readAsDataURL(fileUpload.files[0]);
+                    reader.onload = function (e) {
+                        //Initiate the JavaScript Image object.
+                        var image = new Image();
+
+                        //Set the Base64 string return from FileReader as source.
+                        image.src = e.target.result;
+
+                        //Validate the File Height and Width.
+                        image.onload = function () {
+                            var height = this.height;
+                            var width = this.width;
+                            if (height > 1000 || width > 1000) {
+                            // if (height == 640 && width > 480) {
+                                document.getElementById('attach').value = '';
+                                alert("Height and Width must size of 640 x 480. Please check resolution of Uploaded Photo.");
+                                return false;
+                            }
+                            // alert("Uploaded image has valid Height and Width.");
+                            return true;
+                        };
+
+                    }
+                } else {
+                    document.getElementById('attach').value = '';
+                    alert("This browser does not support HTML5.");
+                    return false;
+                }
+            } else {
+                document.getElementById('attach').value = '';
+                alert("Please select a valid Image file.");
+                return false;
+            }
+        }
+        function UploadFile(){
+      
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var branch = document.getElementById("linkedinUrl").value;
+            var year = document.getElementById("skillsets").value;
+            var fileUpload = document.getElementById("attach").value;
+            if (name == ''  || email == '' || year == '' || branch=='' || fileUpload == '' ) {
+                alert("Please fill up all required data.");
+            }
+            var reader=new FileReader();
+            var file=document.getElementById('attach').files[0];
+            reader.onload=function(){
+                document.getElementById('fileContent').value=reader.result;
+                document.getElementById('filename').value=file.name;
+                document.getElementById('uploadForm').submit();
+            }
+            reader.readAsDataURL(file);
+            document.write("<center><h1>You have successfully submitted form.</h1></center>");
+        }
+    </script>
+    </body>
+</html>
